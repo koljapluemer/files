@@ -322,3 +322,31 @@ done
 
 yt-dlp -f 'bestaudio[ext=m4a]' "http://youtu.be/XXXXXXXXX"
 
+
+## convert and trim videos (e.g. publish devlog)
+
+```sh
+duration=$(ffprobe -v error -show_entries format=duration -of csv=p=0 vid.webm)
+ffmpeg -i vid.webm -r 30 \
+  -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
+  -c:v libx264 -preset fast -crf 23 \
+  -c:a aac -b:a 128k \
+  -t $(echo "$duration-1" | bc) vid_twitter.mp4
+
+```
+
+```
+ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 vid.mp4 | awk '{print $1-1}') -c copy trimmed.mp4
+```
+
+## how do I force new ip address﹖
+
+`sudo dhclient -r && sudo dhclient`
+
+## how do I get first and last git commit of repo﹖
+
+```
+first=$(git log --reverse --date=format:'%Y-%m-%d' --pretty=format:"%ad" | head -n1); last=$(git log -1 --date=format:'%Y-%m-%d' --pretty=format:"%ad"); echo "commits: [[$first]]-[[$last]]"
+```
+
+
