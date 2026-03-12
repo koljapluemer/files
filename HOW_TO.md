@@ -1,5 +1,6 @@
-## how to 100 Bytes of CSS to look great
+## 100 Bytes of CSS to look great
 
+```
 html {
   max-width: 70ch;
   padding: 3em 1em;
@@ -7,9 +8,11 @@ html {
   line-height: 1.75;
   font-size: 1.25em;
 }
+```
 
 ## how to add kofi donation widget﹖
 
+```
   <a
     href="https://ko-fi.com/S6S81CWUVD"
     target="_blank"
@@ -18,7 +21,7 @@ html {
   >
    buy me a coffee
   </a>
-
+```
 
 
 also in repo add `.github/funding.yml` with
