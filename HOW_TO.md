@@ -321,6 +321,13 @@ while IFS= read -r -d '' f; do
 done
 ```
 
+## how to convert to webp
+
+```
+cwebp screenshot.png -o screenshot.webp
+
+```
+
 ## how to youtube-dl audio only﹖ (yt-dlp mp3)
 
 yt-dlp -f 'bestaudio[ext=m4a]' "http://youtu.be/XXXXXXXXX"
