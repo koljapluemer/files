@@ -365,3 +365,24 @@ first=$(git log --reverse --date=format:'%Y-%m-%d' --pretty=format:"%ad" | head 
 npx npm-check-updates -u
 npm install
 ```
+
+## Simple CSS Website Styling Paradigms Libraries
+
+
+*   [Yorha CSS](https://metakirby5.github.io/yorha/) for a unique, simple vintage look
+*   [Water CSS](https://github.com/kognise/water.css) for when I want a little bit of character
+*   [Simple.css](https://simplecss.org/demo) when I just want readable text with a very muted style
+
+*   ...[100 Bytes of CSS to look great](https://gist.githubusercontent.com/JoeyBurzynski/617fb6201335779f8424ad9528b72c41/raw/1bedddaf8a1e7f269296b413cfb2047f5c9f28f9/55-bytes-of-css.md) 
+* or [58 bytes of CSS to look great nearly everywhere](https://gist.github.com/JoeyBurzynski/617fb6201335779f8424ad9528b72c41)
+```
+main {
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
+}
+```
+
+
+*   ...some layouts from [Ten modern layouts in one line of CSS](https://web.dev/articles/one-line-layouts)
+
