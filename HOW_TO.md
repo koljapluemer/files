@@ -17,7 +17,7 @@ html {
     href="https://ko-fi.com/S6S81CWUVD"
     target="_blank"
     rel="noopener"
-    class="kofi-btn"
+    class="link"
   >
    buy me a coffee
   </a>
@@ -359,4 +359,9 @@ ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration -of defaul
 first=$(git log --reverse --date=format:'%Y-%m-%d' --pretty=format:"%ad" | head -n1); last=$(git log -1 --date=format:'%Y-%m-%d' --pretty=format:"%ad"); echo "commits: [[$first]]-[[$last]]"
 ```
 
+## npm update all packages ts project javascript js
 
+```
+npx npm-check-updates -u
+npm install
+```
