@@ -383,6 +383,13 @@ main {
 }
 ```
 
+## take a screenshot every n seconds
+
+```
+while true; do scrot --silent /home/b/Pictures/rec/ & sleep 20; done
+```
+
+
 
 *   ...some layouts from [Ten modern layouts in one line of CSS](https://web.dev/articles/one-line-layouts)
 
