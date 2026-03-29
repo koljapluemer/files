@@ -393,3 +393,9 @@ while true; do scrot --silent /home/b/Pictures/rec/ & sleep 20; done
 
 *   ...some layouts from [Ten modern layouts in one line of CSS](https://web.dev/articles/one-line-layouts)
 
+
+## how to add transparent border to image in terminal﹖
+
+```
+convert q.png -bordercolor transparent -border 100x0 q2.png
+```
