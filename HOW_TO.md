@@ -399,3 +399,9 @@ while true; do scrot --silent /home/b/Pictures/rec/ & sleep 20; done
 ```
 convert q.png -bordercolor transparent -border 100x0 q2.png
 ```
+
+## how to count LOC
+
+```
+cloc src
+```
