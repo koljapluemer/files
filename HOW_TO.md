@@ -405,3 +405,9 @@ convert q.png -bordercolor transparent -border 100x0 q2.png
 ```
 cloc src
 ```
+
+## terminal compress images
+
+```
+jpegoptim -v --size=240k file_name.jpg
+```
