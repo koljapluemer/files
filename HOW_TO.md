@@ -328,6 +328,15 @@ cwebp screenshot.png -o screenshot.webp
 
 ```
 
+convert all, then delete og:
+
+```sh
+for f in *.{jpg,jpeg,png,JPG,JPEG,PNG}; do
+  [ -e "$f" ] || continue
+  cwebp "$f" -o "${f%.*}.webp"
+done && find . -maxdepth 1 -type f ! -name '*.webp' -regex '.*\.\(jpg\|jpeg\|png\|JPG\|JPEG\|PNG\)$' -delete
+```
+
 ## how to youtube-dl audio only﹖ (yt-dlp mp3)
 
 yt-dlp -f 'bestaudio[ext=m4a]' "http://youtu.be/XXXXXXXXX"
