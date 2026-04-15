@@ -420,3 +420,10 @@ cloc src
 ```
 jpegoptim -v --size=240k file_name.jpg
 ```
+
+## Change video playback rate in browser
+
+```
+$('video').playbackRate=3
+```
+  
