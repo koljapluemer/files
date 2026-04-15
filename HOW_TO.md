@@ -426,4 +426,10 @@ jpegoptim -v --size=240k file_name.jpg
 ```
 $('video').playbackRate=3
 ```
-  
+
+## how to create and push a github repo from local folder﹖
+
+```sh
+gh repo create "$(basename "$PWD")" --public --source=. --remote=origin --push
+```
+
