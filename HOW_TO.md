@@ -433,3 +433,21 @@ $('video').playbackRate=3
 gh repo create "$(basename "$PWD")" --public --source=. --remote=origin --push
 ```
 
+## get mp3 sources from site in browser console
+
+
+```sh
+var resources = window.performance.getEntriesByType("resource");
+resources.forEach(function (resource) {
+    if(resource.name.includes("mp3")) console.log(resource.name);
+});
+```
+
+...lisaanmasry doesn't seems to have file endings:
+
+```sh
+var resources = window.performance.getEntriesByType("resource");
+resources.forEach(function (resource) {
+    console.log(resource.name);
+});
+```
