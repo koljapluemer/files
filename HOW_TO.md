@@ -358,6 +358,12 @@ ffmpeg -i vid.webm -r 30 \
 ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 vid.mp4 | awk '{print $1-1}') -c copy trimmed.mp4
 ```
 
+```
+ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration \
+-of default=noprint_wrappers=1:nokey=1 input.mp4 | awk '{print $1-1}') \
+-c copy output.mp4
+```
+
 ## how do I force new ip address﹖
 
 `sudo dhclient -r && sudo dhclient`
