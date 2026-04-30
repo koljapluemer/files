@@ -457,3 +457,13 @@ resources.forEach(function (resource) {
     console.log(resource.name);
 });
 ```
+
+## get video files from camcorder to computer
+
+- all are `.MOD`, in random nested folders
+- actual filenames are all the same
+- we assumese `~/Videos/in` is a reasonable target location
+
+```sh
+find . -type f -iname '*.MOD' -print0 | while IFS= read -r -d '' f; do t=$(stat -c '%w' "$f"); [ "$t" = "-" ] && t=$(stat -c '%y' "$f"); d=$(date -d "$t" +%F); n="$HOME/Videos/in/$d.MOD"; i=1; while [ -e "$n" ]; do n="$HOME/Videos/in/${d}_$((i++)).MOD"; done; cp -p "$f" "$n"; done
+```
