@@ -467,3 +467,10 @@ resources.forEach(function (resource) {
 ```sh
 find . -type f -iname '*.MOD' -print0 | while IFS= read -r -d '' f; do t=$(stat -c '%w' "$f"); [ "$t" = "-" ] && t=$(stat -c '%y' "$f"); d=$(date -d "$t" +%F); n="$HOME/Videos/in/$d.MOD"; i=1; while [ -e "$n" ]; do n="$HOME/Videos/in/${d}_$((i++)).MOD"; done; cp -p "$f" "$n"; done
 ```
+
+
+## increasing video speed in browser console
+
+```js
+document.querySelector('video').playbackRate = 2.3;
+```
