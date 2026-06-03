@@ -1,0 +1,16 @@
+Truth:  Describe the current market landscape.
+Truth:  Identify existing needs and competitors.
+Truth:  Highlight relevant technology standards.
+Truth:  Share insights on past successes and failures in the field.
+Assertions: Outline the changes you intend to make.
+Assertions: Detail what you will do and the expected outcomes.
+Assertions: Specify timelines and required resources.
+Alternatives: Discuss potential challenges to your assertions.
+Alternatives: Present contingency plans if initial strategies fail.
+Alternatives: Assess the flexibility of your product or team.
+People: Introduce your team members.
+People: Emphasize their attitudes, abilities, and track records.
+People: Highlight relevant experiences and accomplishments.
+Money: State the amount of funding needed.
+Money: Explain how the funds will be allocated.
+Money: Provide projections for cash flow, P&L, margins, and exit strategies.
