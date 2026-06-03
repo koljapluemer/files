@@ -1,5 +1,6 @@
-## how to 100 Bytes of CSS to look great
+## 100 Bytes of CSS to look great
 
+```
 html {
   max-width: 70ch;
   padding: 3em 1em;
@@ -7,18 +8,20 @@ html {
   line-height: 1.75;
   font-size: 1.25em;
 }
+```
 
 ## how to add kofi donation widget﹖
 
+```
   <a
     href="https://ko-fi.com/S6S81CWUVD"
     target="_blank"
     rel="noopener"
-    class="kofi-btn"
+    class="link"
   >
    buy me a coffee
   </a>
-
+```
 
 
 also in repo add `.github/funding.yml` with
@@ -318,7 +321,156 @@ while IFS= read -r -d '' f; do
 done
 ```
 
+## how to convert to webp
+
+```
+cwebp screenshot.png -o screenshot.webp
+
+```
+
+convert all, then delete og:
+
+```sh
+for f in *.{jpg,jpeg,png,JPG,JPEG,PNG}; do
+  [ -e "$f" ] || continue
+  cwebp "$f" -o "${f%.*}.webp"
+done && find . -maxdepth 1 -type f ! -name '*.webp' -regex '.*\.\(jpg\|jpeg\|png\|JPG\|JPEG\|PNG\)$' -delete
+```
+
 ## how to youtube-dl audio only﹖ (yt-dlp mp3)
 
 yt-dlp -f 'bestaudio[ext=m4a]' "http://youtu.be/XXXXXXXXX"
 
+
+## convert and trim videos (e.g. publish devlog)
+
+```sh
+duration=$(ffprobe -v error -show_entries format=duration -of csv=p=0 vid.webm)
+ffmpeg -i vid.webm -r 30 \
+  -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
+  -c:v libx264 -preset fast -crf 23 \
+  -c:a aac -b:a 128k \
+  -t $(echo "$duration-1" | bc) vid_twitter.mp4
+
+```
+
+```
+ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 vid.mp4 | awk '{print $1-1}') -c copy trimmed.mp4
+```
+
+```
+ffmpeg -i vid.mp4 -t $(ffprobe -v error -show_entries format=duration \
+-of default=noprint_wrappers=1:nokey=1 vid.mp4 | awk '{print $1-1}') \
+-c copy output.mp4
+```
+
+## how do I force new ip address﹖
+
+`sudo dhclient -r && sudo dhclient`
+
+## how do I get first and last git commit of repo﹖
+
+```
+first=$(git log --reverse --date=format:'%Y-%m-%d' --pretty=format:"%ad" | head -n1); last=$(git log -1 --date=format:'%Y-%m-%d' --pretty=format:"%ad"); echo "commits: [[$first]]-[[$last]]"
+```
+
+## npm update all packages ts project javascript js
+
+```
+npx npm-check-updates -u
+npm install
+```
+
+## Simple CSS Website Styling Paradigms Libraries
+
+
+*   [Yorha CSS](https://metakirby5.github.io/yorha/) for a unique, simple vintage look
+*   [Water CSS](https://github.com/kognise/water.css) for when I want a little bit of character
+*   [Simple.css](https://simplecss.org/demo) when I just want readable text with a very muted style
+
+*   ...[100 Bytes of CSS to look great](https://gist.githubusercontent.com/JoeyBurzynski/617fb6201335779f8424ad9528b72c41/raw/1bedddaf8a1e7f269296b413cfb2047f5c9f28f9/55-bytes-of-css.md) 
+* or [58 bytes of CSS to look great nearly everywhere](https://gist.github.com/JoeyBurzynski/617fb6201335779f8424ad9528b72c41)
+```
+main {
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
+}
+```
+
+## take a screenshot every n seconds
+
+```
+while true; do scrot --silent /home/b/Pictures/rec/ & sleep 20; done
+```
+
+
+
+*   ...some layouts from [Ten modern layouts in one line of CSS](https://web.dev/articles/one-line-layouts)
+
+
+## how to add transparent border to image in terminal﹖
+
+```
+convert q.png -bordercolor transparent -border 100x0 q2.png
+```
+
+## how to count LOC
+
+```
+cloc src
+```
+
+## terminal compress images
+
+```
+jpegoptim -v --size=240k file_name.jpg
+```
+
+## Change video playback rate in browser
+
+```
+$('video').playbackRate=3
+```
+
+## how to create and push a github repo from local folder﹖
+
+```sh
+gh repo create "$(basename "$PWD")" --public --source=. --remote=origin --push
+```
+
+## get mp3 sources from site in browser console
+
+
+```sh
+var resources = window.performance.getEntriesByType("resource");
+resources.forEach(function (resource) {
+    if(resource.name.includes("mp3")) console.log(resource.name);
+});
+```
+
+...lisaanmasry doesn't seems to have file endings:
+
+```sh
+var resources = window.performance.getEntriesByType("resource");
+resources.forEach(function (resource) {
+    console.log(resource.name);
+});
+```
+
+## get video files from camcorder to computer
+
+- all are `.MOD`, in random nested folders
+- actual filenames are all the same
+- we assumese `~/Videos/in` is a reasonable target location
+
+```sh
+find . -type f -iname '*.MOD' -print0 | while IFS= read -r -d '' f; do t=$(stat -c '%w' "$f"); [ "$t" = "-" ] && t=$(stat -c '%y' "$f"); d=$(date -d "$t" +%F); n="$HOME/Videos/in/$d.MOD"; i=1; while [ -e "$n" ]; do n="$HOME/Videos/in/${d}_$((i++)).MOD"; done; cp -p "$f" "$n"; done
+```
+
+
+## increasing video speed in browser console
+
+```js
+document.querySelector('video').playbackRate = 2.3;
+```
