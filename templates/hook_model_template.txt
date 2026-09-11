@@ -1,8 +1,0 @@
-Internal Trigger: What do users really want?
-Internal Trigger: What pain is your product relieving?
-External Trigger: What brings users to your service?
-What is the simplest action users take in anticipation of reward?
-How can you simplify your product to make this action easier?
-Are users fulfilled by the reward yet left wanting more?
-What “bit of work” do users invest in your product?
-Does it load the next trigger and store value to improve the product with use?
